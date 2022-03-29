@@ -82,37 +82,19 @@
             </div>
         </div>
         <div class="row align-items-stretch">
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-sea-ship-with-containers"></span></div>
-                    <div>
-                        <h3>Kemudi Kapal</h3>
-                        <p>Bergerak di jasa pengadaan sistem kemudi hidrolik pada kapal.</p>
-                        <p class="mb-0"><a href="/" class="text-blue">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-sea-ship-with-containers"></span></div>
-                    <div>
-                        <h3>Kemudi Hidrolik</h3>
-                        <p>Sistemkemudi hidrolik (Hydraulic steering gear) dan winch hidrolik untuk jangkar dan ramdoor, Baik pemasangan kapal baru ataupun perbaikan</p>
-                        <p class="mb-0"><a href="/#" class="text-blue">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-sea-ship-with-containers"></span></div>
-                    <div>
-                        <h3>Perlengkapan Hidrolik dan Elektrikal</h3>
-                        <p>Kami juga menyediakan stok kebutuhan perlengkapan hidrolik dan elektrikal pada kapal. Seperti powerpack, hidrolik cilinder, hidrolik motor, helm pump, powersteering, steering whel, macam-macam valve, Rudder angle indicator, RPM indicator, power supply, dll.</p>
-                        <p class="mb-0"><a href="/#" class="text-blue">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
 
+            @foreach($wwe as $m)
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-sea-ship-with-containers"></span></div>
+                    <div>
+                        <h3>{{$m->title}}</h3>
+                        <p>{{$m->description}}</p>
+
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -148,36 +130,19 @@
             </div>
         </div>
         <div class="row align-items-stretch">
+
+            @foreach($ms as $m)
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                 <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-barn"></span></div>
+                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-sea-ship-with-containers"></span></div>
                     <div>
-                        <h3>Warehousing</h3>
-                        <p>warehousing companies that produce goods to be sent directly to customers, while logistics companies are shipping service companies that use warehousing to temporarily store customer shipments..</p>
-                        <p><a href="/#" class="text-blue">Learn More</a></p>
+                        <h3>{{$m->title}}</h3>
+                        <p>{{$m->description}}</p>
+
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-                <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-platform"></span></div>
-                    <div>
-                        <h3>Storage</h3>
-                        <p>Temporary storage of goods before they are used. In general, the material is put into the storage area after the stuffing process is complete.</p>
-                        <p><a href="/#" class="text-blue">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-                <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><span class=" text-blue flaticon-car"></span></div>
-                    <div>
-                        <h3>Delivery Van</h3>
-                        <p>Time Delivery. The advantages of implementing the milkrun system are transportation cost efficiency, shortening lead time from ordering to delivery, reducing truck & driver control and reducing unnecessary stock.</p>
-                        <p><a href="/#" class="text-blue">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

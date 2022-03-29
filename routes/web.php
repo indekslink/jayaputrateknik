@@ -5,12 +5,14 @@ use App\Http\Controllers\{
     AuthController,
     ItemController,
     MainController,
+    MoreServicesController,
     ProductController,
-    SosmedController
+    SosmedController,
+    WWEController
 };
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/updateapp', function () {
+    system('composer dump-autoload');
+    exec("composer dump-autoload");
+    echo 'dump-autoload complete';
+});
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'post_login'])->name('post_login');
@@ -43,6 +50,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         'products' => ProductController::class,
         'items' => ItemController::class,
         'sosmed' => SosmedController::class,
+        'wwe' => WWEController::class,
+        'ms' => MoreServicesController::class
     ]);
     Route::get('/contact', [AdminController::class, 'contact'])->name('admin.contact');
     // Route::get('/sosmed', [AdminController::class, 'contact'])->name('admin.sosmed');

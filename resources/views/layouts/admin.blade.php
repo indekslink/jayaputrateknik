@@ -22,7 +22,7 @@
         table th,
         table td {
             vertical-align: middle !important;
-            white-space: nowrap !important;
+            /* white-space: nowrap !important; */
         }
 
         table img {

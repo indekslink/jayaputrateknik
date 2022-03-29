@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\HomeContent;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\Profile;
@@ -17,8 +18,10 @@ class AdminController extends Controller
         $mail = Message::count();
         // $last_mail = Message::latest()->limit(3)->get();
         $products = Product::count();
+        $wwe = HomeContent::whereSection('wwe')->latest()->get();
+        $ms = HomeContent::whereSection('ms')->latest()->get();
         $messages = Message::latest()->paginate(10);
-        return view('admin.dashboard', compact('mail', 'products', 'messages'));
+        return view('admin.dashboard', compact('mail', 'products', 'messages', 'wwe', 'ms'));
     }
 
     public function profile()
@@ -110,5 +113,20 @@ class AdminController extends Controller
             'status' => 'success',
             'msg' => $msg
         ]);
+    }
+
+    public function konten_home(Request $request, $section)
+    {
+
+        // return response()->json($request->all());
+        $result = HomeContent::updateOrCreate(
+            ['id' => $request->id],
+            [
+                'title' => $request->title,
+                'description' => nl2br($request->description),
+                'section' => $section
+            ],
+        );
+        return response()->json($result->id);
     }
 }

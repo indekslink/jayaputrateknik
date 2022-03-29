@@ -27,6 +27,22 @@
 </head>
 
 <body>
+    @if(count(getPhone()) > 1)
+    <div class="btn-group dropup" style="position:fixed;bottom:12px;left:12px;z-index:99999999999;">
+        <button type="button" class="btn btn-success text-light" style="border-radius:10px !important;" data-toggle="dropdown" aria-expanded="false">
+            <i class="fab fa-whatsapp fa-2x"></i>
+        </button>
+        <div class="dropdown-menu">
+            @foreach(getPhone() as $p)
+            <a class="dropdown-item" target="_blank" href="https://api.whatsapp.com/send?phone={{convertWa($p)}}">{{$p}}</a>
+            @endforeach
+        </div>
+    </div>
+    @else
+    <a style="position:fixed;bottom:12px;left:12px;z-index:99999999999;border-radius:10px !important;" href="https://api.whatsapp.com/send?phone={{convertWa(getPhone()[0])}}" target="_blank" class="btn btn-success text-light">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+    @endif
     <button class="to-top btn btn-primary btn-lg">
         <i class="fas fa-arrow-up"></i>
     </button>

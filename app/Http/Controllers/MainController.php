@@ -10,16 +10,18 @@ use App\Mail\Messages as MailMessages;
 use App\Models\Message;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Models\HomeContent;
 
 class MainController extends Controller
 {
     public function index()
     {
-
+        // dd(convertWa(getPhone()[0]));
         $slogan = Profile::select('slogan')->first()->pluck('slogan')[0];
-
+        $wwe = HomeContent::whereSection('wwe')->latest()->get();
+        $ms = HomeContent::whereSection('ms')->latest()->get();
         $products = Product::latest()->get();
-        return view('main.home', compact('products', 'slogan'));
+        return view('main.home', compact('products', 'slogan', 'wwe', 'ms'));
     }
     public function about()
     {

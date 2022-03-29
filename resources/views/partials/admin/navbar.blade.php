@@ -76,9 +76,7 @@
             <div class="dropdown-menu dropdown-menu-right">
                 <!-- <div class="dropdown-title">Logged in 5 min ago</div> -->
 
-                <a href="features-settings.html" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
+
                 <!-- <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item has-icon text-danger" style="cursor: pointer;">
                     <form action="{{route('logout')}}" method="post" onclick="this.submit()">
