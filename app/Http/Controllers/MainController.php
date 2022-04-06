@@ -17,7 +17,10 @@ class MainController extends Controller
     public function index()
     {
         // dd(convertWa(getPhone()[0]));
-        $slogan = Profile::select('slogan')->first()->pluck('slogan')[0];
+        $slogan = Profile::select('slogan')->first();
+        if ($slogan) {
+            $slogan = $slogan->pluck('slogan')[0];
+        }
         $wwe = HomeContent::whereSection('wwe')->latest()->get();
         $ms = HomeContent::whereSection('ms')->latest()->get();
         $products = Product::latest()->get();

@@ -80,7 +80,7 @@
                                     <div class="form-group">
                                         <label>Image Item</label>
                                         <div class="input-group ">
-                                            <input data-id="{{$item->id}}" onchange="previewImgItem(event,'.preview-item-{{$loop->iteration}}','.target-action-{{$loop->iteration}}','{{$loop->iteration}}')" type="file" name="image_item" class="form-control input-item-{{$loop->iteration}}" accept=".jpg, .png, .jpeg">
+                                            <input data-id="{{$item->id}}" onchange="previewImgItem(event,'.preview-item-{{$loop->iteration}}','.target-action-{{$loop->iteration}}','{{$loop->iteration}}')" type="file" name="image_item" class="form-control input-item-{{$loop->iteration}}" accept=".jpg, .png, .jpeg, .mp4">
 
 
                                             <div class="input-group-append target-action-{{$loop->iteration}}">
@@ -137,7 +137,7 @@
 
                                            
                                                 <div class="input-group ">
-                                                <input  onchange="previewImgItem(event,'.preview-item-${noItem}','.target-action-${noItem}','${noItem}')" type="file" name="image_item[]" data-id="null" required class="form-control input-item-${noItem}" accept=".jpg, .png, .jpeg">
+                                                <input  onchange="previewImgItem(event,'.preview-item-${noItem}','.target-action-${noItem}','${noItem}')" type="file" name="image_item[]" data-id="null" required class="form-control input-item-${noItem}" accept=".jpg, .png, .jpeg, .mp4">
                                                     <div class="input-group-append target-action-${noItem}">
                                                     <button class="btn  btn-outline-danger" onclick="deleteItem('.parent-item-${noItem}')"  type="button"><i class="fas fa-trash"></i></button>
                                                     </div>

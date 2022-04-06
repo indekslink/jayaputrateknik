@@ -15,6 +15,7 @@
             <li class="{{request()->is('admin/profile') || request()->is('admin/profile/*') ? 'active' : ''}}"><a class="nav-link " href="{{route('admin.profile')}}"><i class="fas fa-landmark"></i> <span>Profile</span></a></li>
 
             <li class="{{request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : ''}}"><a class="nav-link " href="{{route('products.index')}}"><i class="fas fa-clipboard-list"></i> <span>Product</span></a></li>
+            <li class="{{request()->is('admin/gallery') || request()->is('admin/gallery/*') ? 'active' : ''}}"><a class="nav-link " href="{{route('gallery.index')}}"><i class="fas fa-images"></i> <span>Galleries</span></a></li>
 
             <li class="{{request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : ''}}"><a class="nav-link " href="{{route('admin.contact')}}"><i class="fas fa-address-card"></i> <span>Contact</span></a></li>
 

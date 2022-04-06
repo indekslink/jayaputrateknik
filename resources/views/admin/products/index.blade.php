@@ -44,7 +44,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td><img src="/images/uploads/{{$product->image}}" class="img-thumbnail" width="50" height="50" alt=""></td>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->items->count()}} Gambar</td>
+                                <td>{{$product->items->count()}} Item</td>
                                 <td class="text-center">
                                     <a href="{{route('products.show',$product->slug)}}" class="btn btn-sm mx-1 btn-info">Detail</a>
                                     <a href="{{route('products.edit',$product->slug)}}" class="btn btn-sm mx-1 btn-warning">Edit</a>

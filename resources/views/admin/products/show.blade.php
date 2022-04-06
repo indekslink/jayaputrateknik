@@ -41,7 +41,17 @@
                     <div class="card-body">
                         <div class="my-grid">
                             @foreach($product->items as $items)
+                            @if(explode('.',$items->image)[1] == 'mp4')
+
+                            <a target="_blank" class="overflow-hidden shadow" href="/images/uploads/{{$items->image}}">
+                                <video class="w-100" controls>
+                                    <source src="/images/uploads/{{$items->image}}" type="video/mp4">
+                                </video>
+                            </a>
+                            @else
+
                             <a target="_blank" class="overflow-hidden shadow" href="/images/uploads/{{$items->image}}"><img src="/images/uploads/{{$items->image}}" alt="image"></a>
+                            @endif
                             @endforeach
                         </div>
 

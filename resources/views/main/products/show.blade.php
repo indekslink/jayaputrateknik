@@ -27,7 +27,20 @@
     <div class="row grid-items">
         @forelse($product->items as $items)
         <div class="col-lg-3 p-3 col-md-4 col-6">
+
+
+
+            @if(explode('.',$items->image)[1] == 'mp4')
+
+
+            <a target="_blank" class=" shadow item-card d-block" href="/images/uploads/{{$items->image}}"><video class="w-100 h-100" controls>
+                    <source src="/images/uploads/{{$items->image}}" type="video/mp4">
+                </video></a>
+            @else
+
             <a data-lightbox="example-set" target="_blank" class=" shadow item-card d-block" href="/images/uploads/{{$items->image}}"><img src="/images/uploads/{{$items->image}}" alt="image"></a>
+            @endif
+
         </div>
         @empty
         <div class="col-12">

@@ -44,7 +44,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'image' => 'required|mimes:jpg,png,jpeg|max:2000',
-            'image_item.*' => 'required|mimes:jpg,png,jpeg|max:2000',
+            'image_item.*' => 'required|mimes:jpg,png,jpeg,mp4',
 
         ]);
         DB::transaction(function () use ($request) {

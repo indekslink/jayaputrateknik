@@ -3,6 +3,7 @@
 use App\Http\Controllers\{
     AdminController,
     AuthController,
+    GalleryController,
     ItemController,
     MainController,
     MoreServicesController,
@@ -51,7 +52,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         'items' => ItemController::class,
         'sosmed' => SosmedController::class,
         'wwe' => WWEController::class,
-        'ms' => MoreServicesController::class
+        'ms' => MoreServicesController::class,
+        'gallery' => GalleryController::class
     ]);
     Route::get('/contact', [AdminController::class, 'contact'])->name('admin.contact');
     // Route::get('/sosmed', [AdminController::class, 'contact'])->name('admin.sosmed');
