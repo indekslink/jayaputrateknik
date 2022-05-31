@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use PDO;
 
 class GalleryController extends Controller
 {
@@ -16,8 +19,22 @@ class GalleryController extends Controller
     public function index()
     {
 
-        $galleries = Gallery::latest()->paginate(10);
+        $galleries = Gallery::orderBy('created_at', 'DESC')->get()->groupBy(function ($item) {
+            return Carbon::parse($item->created_at)->format('d-m-Y');
+        });
+        // dd($galleries);
+        // $galleries = Gallery::latest()->get();
         return view('admin.gallery.index', compact('galleries'));
+    }
+
+    public function main_index()
+    {
+        // $galleries = Gallery::latest()->get();
+        $galleries = Gallery::orderBy('created_at', 'DESC')->get()->groupBy(function ($item) {
+            return Carbon::parse($item->created_at)->format('d-M-Y');
+        });
+
+        return view('main.galleries.index', compact('galleries'));
     }
 
     /**
@@ -38,22 +55,37 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required',
-            'image.*' => 'mimes:jpg,png,jpeg|max:2000',
+
+
+        $validate = Validator::make($request->all(), [
+            'item' => 'mimes:jpg,png,jpeg,mp4',
         ]);
+
+        if ($validate->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'msg' => $validate->errors()
+            ]);
+        }
 
 
         $names = [];
+
         // $request->file('image')->getClientOriginalExtension()
-        foreach ($request->file('image') as $key => $img) {
+        foreach ($request->file('items') as $key => $img) {
             $name = time() . rand(99, 999) . '.' . $img->getClientOriginalExtension();
             $img->move('images/uploads/gallery/', $name);
-            $names[$key] = $name;
+            $names[$key]['item'] = $name;
+            $names[$key]['created_at'] = Carbon::now();
         }
 
-        DB::table('galleries')->insert($names);
-        return redirect()->route('gallery.index')->with('success', 'Data Berhasil disimpan');
+        $data = DB::table('galleries')->insert($names);
+
+        return response()->json([
+            'status' => 'success',
+            'msg' => 'Item berhasil ditambahkan',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -99,5 +131,20 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $items = Gallery::whereIn('id', $request->id)->get();
+        foreach ($items as $item) {
+            unlink('images/uploads/gallery/' . $item->item);
+            $item->delete();
+        }
+
+
+        return response()->json([
+            'status' => 'success',
+            'msg' => 'Data item berhasil di hapus'
+        ]);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Contact;
+use App\Models\SEO;
 
 function getPhone()
 {
@@ -26,4 +27,14 @@ function convertWa($phone)
     }
 
     return null;
+}
+
+function seoKeywords()
+{
+    $result = SEO::all();
+    $result = $result->map(function ($key) {
+        return $key->name;
+    })->toArray();
+    $result = implode(", ", $result);
+    return $result;
 }

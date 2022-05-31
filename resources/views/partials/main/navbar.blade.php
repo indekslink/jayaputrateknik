@@ -22,6 +22,9 @@
                             <li class="{{request()->is('products') || request()->is('products/*') ? 'active' : ''}}">
                                 <a href="/products">Product</a>
                             </li>
+                            <li class="{{request()->is('galleries') || request()->is('galleries/*') ? 'active' : ''}}">
+                                <a href="{{route('main.galleries')}}">Galleries</a>
+                            </li>
                             <!-- <li><a href="/">Blog</a></li> -->
                             <li class="{{request()->is('contact-us') ? 'active' : ''}}"><a href="/contact-us">Contact US</a></li>
                         </ul>

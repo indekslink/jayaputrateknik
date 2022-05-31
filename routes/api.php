@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
@@ -29,3 +30,9 @@ Route::prefix('items')->group(function () {
 Route::post('/change-profile', [AdminController::class, 'process_profile'])->name('process_profile');
 Route::post('/change-contact', [AdminController::class, 'process_contact'])->name('process_contact');
 Route::post('/send-messages', [MainController::class, 'process_messages'])->name('process_messages');
+
+
+Route::prefix('gallaries')->group(function () {
+    Route::post('/add', [GalleryController::class, 'store'])->name('add_galleries');
+    Route::delete('/delete', [GalleryController::class, 'deleteAll'])->name('delete_galleries');
+});

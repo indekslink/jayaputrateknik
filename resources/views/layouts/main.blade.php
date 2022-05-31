@@ -3,10 +3,19 @@
 
 <head>
     <title>@yield('title') - JAYA PUTRA TEKNIK</title>
+
+
+    <meta name="description" content="Perusahaan Dagang dan Jasa yang mempunyai daya saing, berkualitas, berkompetensi dengan menguasai berbagai komoditi yang legal serta bermanfaat untuk menunjang kesejahteraan karyawan" />
+    <meta name="googlebot" content="notranslate" />
+    <meta name="robots" content="index, follow" />
+    <meta name="rating" content="RTA-5042-1996-1400-1577-RTA" />
+    <meta name="keyword" content="{{seoKeywords()}}" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta property="og:image" content="https://jayaputrateknik.com/logo2og.png">
     <link rel="stylesheet" href="/dist/css/lightbox.min.css">
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -39,7 +48,7 @@
         </div>
     </div>
     @else
-    <a style="position:fixed;bottom:12px;left:12px;z-index:99999999999;border-radius:10px !important;" href="https://api.whatsapp.com/send?phone={{convertWa(getPhone()[0])}}" target="_blank" class="btn btn-success text-light">
+    <a style="position:fixed;bottom:12px;left:12px;z-index:999;border-radius:10px !important;" href="https://api.whatsapp.com/send?phone={{convertWa(getPhone()[0])}}" target="_blank" class="btn btn-success text-light">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
     @endif

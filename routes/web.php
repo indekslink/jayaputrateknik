@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     MainController,
     MoreServicesController,
     ProductController,
+    SeoController,
     SosmedController,
     WWEController
 };
@@ -43,6 +44,11 @@ Route::prefix('products')->group(function () {
     Route::get('/', [ProductController::class, 'main_index'])->name('main.products');
     Route::get('/{product:slug}', [ProductController::class, 'main_show'])->name('main.products.show');
 });
+Route::prefix('galleries')->group(function () {
+    Route::get('/', [GalleryController::class, 'main_index'])->name('main.galleries');
+    // Route::get('/{product:slug}', [GalleryController::class, 'main_show'])->name('main.galleries.show');
+});
+
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
@@ -53,7 +59,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         'sosmed' => SosmedController::class,
         'wwe' => WWEController::class,
         'ms' => MoreServicesController::class,
-        'gallery' => GalleryController::class
+        'gallery' => GalleryController::class,
+        'seo' => SeoController::class,
     ]);
     Route::get('/contact', [AdminController::class, 'contact'])->name('admin.contact');
     // Route::get('/sosmed', [AdminController::class, 'contact'])->name('admin.sosmed');

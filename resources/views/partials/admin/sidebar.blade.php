@@ -20,6 +20,7 @@
             <li class="{{request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : ''}}"><a class="nav-link " href="{{route('admin.contact')}}"><i class="fas fa-address-card"></i> <span>Contact</span></a></li>
 
             <li class="{{request()->is('admin/sosmed') || request()->is('admin/sosmed/*') ? 'active' : ''}}"><a class="nav-link " href="{{route('sosmed.index')}}"><i class="fas fa-th"></i> <span>Social Media</span></a></li>
+            <li class="{{request()->is('admin/seo') || request()->is('admin/seo/*') ? 'active' : ''}}"><a class="nav-link " href="{{route('seo.index')}}"><i class="fas fa-globe"></i> <span>SEO Keywords</span></a></li>
         </ul>
 
         <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
